@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>404 - Không tìm thấy trang | Quán Vuông</title>
+
+<meta name="description" content="Trang bạn đang tìm không tồn tại. Quay lại Quán Vuông để khám phá Cháo Sức Khỏe và cơ hội nhượng quyền.">
+
+<meta name="robots" content="noindex,follow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Saira:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+
+--gold:#C79A4B;
+--gold2:#E8C589;
+--red:#D6191F;
+--text:#4A4A4A;
+--bg:#F2F1ED;
+--white:#fff;
+
+--gradient:linear-gradient(135deg,#C79A4B,#E8C589);
+
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+font-family:Montserrat,sans-serif;
+
+background:
+radial-gradient(circle at top right,#f8ecd6 0%,transparent 35%),
+radial-gradient(circle at bottom left,#fff8ef 0%,transparent 30%),
+#fff;
+
+color:var(--text);
+
+min-height:100vh;
+
+display:flex;
+flex-direction:column;
+
+}
+
+header{
+
+position:sticky;
+top:0;
+
+backdrop-filter:blur(12px);
+
+background:rgba(255,255,255,.7);
+
+border-bottom:1px solid #eee;
+
+}
+
+.container{
+
+width:min(1200px,92%);
+margin:auto;
+
+}
+
+.nav{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:18px 0;
+
+}
+
+.logo{
+
+font-size:22px;
+font-weight:800;
+
+color:var(--gold);
+
+}
+
+.menu{
+
+display:flex;
+gap:28px;
+
+}
+
+.menu a{
+
+text-decoration:none;
+
+color:#555;
+
+font-weight:500;
+
+transition:.25s;
+
+}
+
+.menu a:hover{
+
+color:var(--gold);
+
+}
+
+main{
+
+flex:1;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:80px 20px;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.big404{
+
+position:absolute;
+
+font-size:320px;
+
+font-weight:800;
+
+color:#C79A4B;
+
+opacity:.06;
+
+user-select:none;
+
+line-height:1;
+
+}
+
+.content{
+
+position:relative;
+
+z-index:2;
+
+max-width:700px;
+
+animation:fade .8s ease;
+
+}
+
+.content h1{
+
+font-size:110px;
+
+font-weight:800;
+
+color:var(--gold);
+
+line-height:1;
+
+margin-bottom:10px;
+
+}
+
+.content h2{
+
+font-size:42px;
+
+margin-bottom:20px;
+
+}
+
+.content p{
+
+font-size:18px;
+
+line-height:1.8;
+
+color:#666;
+
+margin-bottom:40px;
+
+}
+
+.buttons{
+
+display:flex;
+
+justify-content:center;
+
+gap:16px;
+
+flex-wrap:wrap;
+
+}
+
+.btn{
+
+padding:14px 34px;
+
+border-radius:8px;
+
+font-weight:600;
+
+text-decoration:none;
+
+transition:.3s;
+
+}
+
+.primary{
+
+background:var(--gradient);
+
+color:#fff;
+
+}
+
+.primary:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+}
+
+.secondary{
+
+border:2px solid var(--gold);
+
+color:var(--gold);
+
+}
+
+.secondary:hover{
+
+background:var(--gold);
+
+color:#fff;
+
+}
+
+.quick{
+
+margin-top:55px;
+
+}
+
+.quick h3{
+
+font-size:18px;
+
+margin-bottom:15px;
+
+}
+
+.quick a{
+
+display:inline-block;
+
+margin:6px 12px;
+
+text-decoration:none;
+
+color:#666;
+
+transition:.2s;
+
+}
+
+.quick a:hover{
+
+color:var(--gold);
+
+}
+
+footer{
+
+padding:30px;
+
+text-align:center;
+
+background:#fafafa;
+
+font-size:14px;
+
+color:#888;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.menu{
+
+display:none;
+
+}
+
+.content h1{
+
+font-size:80px;
+
+}
+
+.content h2{
+
+font-size:30px;
+
+}
+
+.big404{
+
+font-size:180px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="container nav">
+
+<div class="logo">QUÁN VUÔNG</div>
+
+<nav class="menu">
+
+<a href="index.html">Trang chủ</a>
+
+<a href="gioi-thieu.html">Giới thiệu</a>
+
+<a href="menu.html">Menu</a>
+
+<a href="nhuong-quyen.html">Nhượng quyền</a>
+
+<a href="lien-he.html">Liên hệ</a>
+
+</nav>
+
+</div>
+
+</header>
+
+<main>
+
+<div class="big404">
+404
+</div>
+
+<div class="content">
+
+<h1>404</h1>
+
+<h2>Không tìm thấy trang</h2>
+
+<p>
+
+Có vẻ đường dẫn bạn vừa truy cập không còn tồn tại hoặc đã được thay đổi.
+
+Hãy quay lại trang chủ hoặc khám phá những món <strong>Cháo Sức Khỏe</strong> của Quán Vuông.
+
+</p>
+
+<div class="buttons">
+
+<a class="btn primary" href="index.html">
+🏠 Về Trang Chủ
+</a>
+
+<a class="btn secondary" href="menu.html">
+🥣 Xem Menu
+</a>
+
+</div>
+
+<div class="quick">
+
+<h3>Truy cập nhanh</h3>
+
+<a href="index.html">Trang chủ</a>
+
+<a href="gioi-thieu.html">Giới thiệu</a>
+
+<a href="menu.html">Menu</a>
+
+<a href="nhuong-quyen.html">Nhượng quyền</a>
+
+<a href="lien-he.html">Liên hệ</a>
+
+</div>
+
+</div>
+
+</main>
+
+<footer>
+
+© 2026 Quán Vuông • CHÁO SỨC KHỎE • ĂN LÀ KHỎE
+
+</footer>
+
+</body>
+</html>
