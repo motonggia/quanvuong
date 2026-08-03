@@ -8,6 +8,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Saira:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
+  p { text-align: justify; }
+
   :root {
     --color-primary: #C79A4B;
     --color-primary-hover: #A67C3D;
@@ -59,7 +61,7 @@
   .text-sub { color: var(--color-gray); font-size: 0.9rem; }
   .text-stat { font-family: var(--font-price); font-weight: 400; color: var(--color-primary); font-size: 2.25rem; line-height: 1; }
 
-  .hero-title { font-weight: 600; font-size: 1.5rem; line-height: 1.2; color: var(--color-ink); white-space: nowrap; }
+  .hero-title { font-weight: 600; font-size: 1.5rem; line-height: 1.2; color: var(--color-ink); }
   .section-title-sm { font-weight: 500; font-size: 1.5rem; line-height: 1.25; }
   .card-title-caps { font-weight: 500; font-size: 1rem; line-height: 1.3; text-transform: uppercase; letter-spacing: 0.3px; }
 
@@ -251,7 +253,8 @@
   }
   .hero-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-lg); align-items: center; }
   .hero-text p { margin: var(--space-sm) 0 var(--space-md); font-size: 1.1rem; color: var(--color-ink); }
-  .hero-cta { display: flex; gap: var(--space-xs); flex-wrap: wrap; }
+  .hero-cta { display: flex; gap: var(--space-xs); flex-wrap: nowrap; }
+  .hero-cta .btn { flex: 1; padding: 10px 8px; font-size: 0.85rem; white-space: nowrap; }
   .hero-img-box { background: var(--color-white); padding: var(--space-xs); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
   .hero-img-box img { border-radius: var(--radius-md); width: 100%; height: 350px; object-fit: cover; }
 
@@ -387,14 +390,14 @@
     <div class="hero-grid">
       <div class="hero-text">
         <span class="badge-tag badge-accent" style="margin-bottom: var(--space-xs);">NHƯỢNG QUYỀN <strong style="font-size: 1.15em; font-weight: 800; color: var(--color-gold-light); letter-spacing: 0.5px;">0 VNĐ</strong></span>
-        <h1 class="hero-title">CHÁO TĂNG LỰC - ĂN LÀ KHOẺ</h1>
-        <p>Cơ hội nhượng quyền Cháo Nồi Gang & Lẩu Cháo cùng Quán Vuông! Mô hình tinh gọn, chi phí đầu tư tối ưu, rủi ro thấp và khả năng hoàn vốn siêu tốc.</p>
-        <div class="hero-cta">
-          <a href="#register" class="btn btn-primary">Đăng Ký Nhượng Quyền 0 VNĐ</a>
+        <h1 class="hero-title">CHÁO TĂNG LỰC – LẨU CHÁO</h1>
+        <p style="text-align: justify; max-width: 420px;"><strong>CƠ HỘI NHƯỢNG QUYỀN CÙNG QUÁN VUÔNG</strong> – Bứt phá kinh doanh với mô hình tinh gọn KHÔNG phụ thuộc đầu bếp và KHÔNG cần biết nấu ăn! Nhờ quy trình đóng gói chuẩn hóa từ Bếp Trung Tâm, bạn dễ dàng làm chủ với chi phí đầu tư tối ưu, rủi ro cực thấp, không lo hàng tồn và khả năng hoàn vốn siêu tốc.</p>
+        <div class="hero-cta" style="max-width: 420px;">
+          <a href="#register" class="btn btn-primary">Nhượng Quyền 0 VNĐ</a>
           <a href="#franchise" class="btn btn-secondary">Xem Chính Sách</a>
         </div>
       </div>
-      <div class="hero-img-box">
+      <div class="hero-img-box" style="width: calc(100% + 57px); margin-left: -28px; margin-right: -28px;">
         <img src="https://images.unsplash.com/photo-1541832676-9b763b0239ab?auto=format&fit=crop&w=800&q=80" alt="Cháo Tăng Lực Quán Vuông nóng hổi">
       </div>
     </div>
@@ -444,7 +447,7 @@
   <div class="container">
     <div class="section-header">
       <h2 class="section-title-sm">SẢN PHẨM & DỊCH VỤ</h2>
-      <p>Hệ thống sản phẩm cốt lõi và các gói cung cấp dành cho đối tác nhượng quyền Quán Vuông</p>
+      <p style="text-align: center;">Hệ thống sản phẩm cốt lõi và các gói cung cấp dành cho đối tác nhượng quyền Quán Vuông</p>
     </div>
     <div class="menu-grid">
       <div class="food-card">
@@ -482,7 +485,7 @@
   <div class="container">
     <div class="section-header" style="margin-bottom: var(--space-lg);">
       <h2 class="section-title-sm">NHƯỢNG QUYỀN 0 ĐỒNG QUÁN VUÔNG</h2>
-      <p>Mô hình kinh doanh "kinh tế vỉa hè" tối ưu, tiết kiệm chi phí nhờ chính sách hỗ trợ đối tác</p>
+      <p style="text-align: center;">Mô hình kinh doanh "kinh tế vỉa hè" tối ưu, tiết kiệm chi phí nhờ chính sách hỗ trợ đối tác</p>
     </div>
     <div class="value-grid">
       <div class="value-card">
@@ -517,7 +520,7 @@
   <div class="container">
     <div class="section-header">
       <h2 class="section-title-sm">TIN TỨC & THÀNH TỰU</h2>
-      <p>Những dấu mốc đáng tự hào trên hành trình phát triển của Quán Vuông</p>
+      <p style="text-align: center;">Những dấu mốc đáng tự hào trên hành trình phát triển của Quán Vuông</p>
     </div>
     <div class="news-grid">
       <div class="news-card">
@@ -543,7 +546,7 @@
   <div class="container">
     <div class="section-header" style="margin-bottom: var(--space-lg);">
       <h2 class="section-title-sm">BÀI VIẾT CHIA SẺ</h2>
-      <p>Kinh nghiệm kinh doanh nhượng quyền dành cho các đối tác của Quán Vuông</p>
+      <p style="text-align: center;">Kinh nghiệm kinh doanh nhượng quyền dành cho các đối tác của Quán Vuông</p>
     </div>
     <div class="blog-grid">
       <div class="blog-item">
