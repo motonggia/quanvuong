@@ -289,7 +289,18 @@
 
   .value-section { background-color: var(--color-bg-panel); padding: var(--space-xl) 0; margin: var(--space-xl) 0; }
   .value-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-md); text-align: center; }
-  .value-card { padding: var(--space-md); background: var(--color-white); border-radius: var(--radius-md); border-top: 4px solid var(--color-primary); }
+  .value-card {
+    padding: var(--space-md);
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    border-top: 4px solid var(--color-primary);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .value-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    border-top-color: var(--color-accent);
+  }
   @media (min-width: 768px) { .value-grid { grid-template-columns: repeat(3, 1fr); } }
 
   .news-section { padding: 0 0 var(--space-xl); }
@@ -300,9 +311,17 @@
     border-radius: var(--radius-md);
     border: 1px solid var(--color-bg-panel);
     box-shadow: var(--shadow-sm);
-    padding: var(--space-md);
+    padding: var(--space-sm);
     border-left: 4px solid var(--color-gold);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-left-color 0.25s ease;
   }
+  .news-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    border-left-color: var(--color-accent);
+  }
+  .news-card .badge-tag { transition: transform 0.25s ease; }
+  .news-card:hover .badge-tag { transform: scale(1.1); }
 
   .blog-section { padding: var(--space-xl) 0; background-color: var(--color-bg-panel); border-radius: var(--radius-lg); margin-bottom: var(--space-xl); }
   .blog-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-sm); }
@@ -318,7 +337,7 @@
   }
   .blog-number { font-family: var(--font-price); font-weight: 400; font-size: 1.5rem; color: var(--color-gold); flex-shrink: 0; }
 
-  .register-section { padding: 0 0 var(--space-xl); }
+  .register-section { padding: var(--space-xl) 0 0; background: var(--gradient-gold); }
   .register-panel {
     background-color: var(--color-bg-panel);
     border-radius: var(--radius-lg);
@@ -370,7 +389,8 @@
   .page-banner h1 { margin-top: var(--space-2xs); }
   .page-banner p { color: var(--color-ink); max-width: 640px; margin: var(--space-xs) auto 0; }
 
-  .timeline-card { position: relative; padding-left: var(--space-md); border-left: 3px solid var(--color-gold); }
+  .timeline-card { position: relative; padding-left: var(--space-md); border-left: 3px solid var(--color-gold); transition: border-color 0.25s ease, transform 0.25s ease; }
+  .timeline-card:hover { border-color: var(--color-accent); transform: translateX(4px); }
   .timeline-card:not(:last-child) { margin-bottom: var(--space-md); }
   .timeline-year { font-family: var(--font-price); color: var(--color-primary); font-weight: 400; font-size: 1.25rem; }
 
@@ -388,12 +408,9 @@
   .founder-img-box img { height: 320px; object-fit: cover; }
 
   .cta-banner {
-    background: var(--gradient-gold);
-    border-radius: var(--radius-lg);
-    padding: var(--space-lg);
+    padding: var(--space-lg) 0 var(--space-xl);
     text-align: center;
     color: var(--color-white);
-    margin-bottom: var(--space-xl);
   }
   .cta-banner h2 { color: var(--color-white); }
   .cta-banner p { color: rgba(255,255,255,0.9); margin-top: var(--space-2xs); }
@@ -414,10 +431,16 @@
   }
 
   .compare-table-wrap { overflow-x: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
-  .compare-table { width: 100%; border-collapse: collapse; background: var(--color-white); min-width: 640px; }
-  .compare-table th, .compare-table td { padding: var(--space-sm); text-align: left; border-bottom: 1px solid var(--color-bg-panel); }
-  .compare-table thead th { background-color: var(--color-ink); color: var(--color-white); font-weight: 500; }
-  .compare-table tbody th { color: var(--color-primary); font-weight: 500; white-space: nowrap; }
+  .compare-table { width: 100%; border-collapse: collapse; background: var(--color-white); min-width: 640px; table-layout: fixed; }
+  .compare-table th, .compare-table td { padding: var(--space-xs) var(--space-sm); text-align: left; border-bottom: 1px solid var(--color-bg-panel); border-right: 0.5mm solid var(--color-bg-panel); vertical-align: top; }
+  .compare-table tbody td { text-align: justify; line-height: 1.4; }
+  .compare-table th:last-child, .compare-table td:last-child { border-right: none; }
+  .compare-table thead th { background-color: var(--color-ink); color: var(--color-white); font-weight: 500; text-align: center; }
+  .compare-table tbody th { color: var(--color-primary); font-weight: 500; }
+  .compare-table tbody tr { transition: background-color 0.25s ease; }
+  .compare-table tbody tr:nth-child(even) { background-color: var(--color-bg-panel); }
+  .compare-table tbody tr:hover { background-color: #FBF2DD; }
+  .compare-table tbody tr:hover th { color: var(--color-primary-hover); }
   .compare-table tbody tr:last-child td, .compare-table tbody tr:last-child th { border-bottom: none; }
 
   .step-number {
@@ -432,11 +455,41 @@
     font-family: var(--font-price);
     font-weight: 400;
     margin-bottom: var(--space-xs);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .timeline-card:hover .step-number { transform: scale(1.12); box-shadow: 0 4px 12px rgba(214,25,31,0.35); }
+
+  .timeline-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  .timeline-grid .timeline-card:not(:last-child) { margin-bottom: 0; }
+  @media (min-width: 768px) {
+    .timeline-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, auto);
+      grid-auto-flow: column;
+      column-gap: var(--space-xl);
+      row-gap: var(--space-md);
+    }
   }
 
   .reason-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-md); }
   @media (min-width: 768px) { .reason-grid { grid-template-columns: repeat(3, 1fr); } }
-  .reason-card { padding: var(--space-md); background: var(--color-white); border-radius: var(--radius-md); border-top: 4px solid var(--color-primary); box-shadow: var(--shadow-sm); }
+  .reason-card {
+    padding: var(--space-md);
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    border-top: 4px solid var(--color-primary);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .reason-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    border-top-color: var(--color-accent);
+  }
 </style>
 </head>
 <body>
@@ -466,11 +519,74 @@
 <section class="page-banner">
   <div class="container">
     <p class="breadcrumb"><a href="index.html">Trang Chủ</a> / Nhượng Quyền</p>
-    <h1 class="h1">HỢP TÁC NHƯỢNG QUYỀN QUÁN VUÔNG</h1>
-    <p>Mô Hình Kinh Doanh Tinh Gọn - Không Cần Đầu Bếp - Bứt Phá Doanh Thu</p>
+    <h1 class="h1">NHƯỢNG QUYỀN <span style="color: var(--color-accent);">0 ĐỒNG</span></h1>
+    <p>Mô Hình Quán nhâu không Cần Đầu Bếp - Bứt Phá Doanh Thu</p>
     <div class="hero-cta" style="justify-content: center; margin-top: var(--space-md);">
       <a href="/#register" class="btn btn-primary">Đăng Ký Nhượng Quyền 0 VNĐ</a>
       <a href="tel:0966785385" class="btn btn-secondary">0966.785.385</a>
+    </div>
+  </div>
+</section>
+
+<section class="menu-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title-sm" style="font-weight: 700;"><span style="color: var(--color-accent);">2</span> MÔ HÌNH NHƯỢNG QUYỀN 0 ĐỒNG</h2>
+      <span style="display: inline-block; width: 56px; height: 3px; background: var(--gradient-gold); border-radius: 2px; margin: var(--space-xs) auto 0;"></span>
+      <p style="margin-top: var(--space-xs);">Lựa chọn mô hình phù hợp với mặt bằng và định hướng kinh doanh của bạn</p>
+    </div>
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <colgroup>
+          <col style="width: 22%;">
+          <col style="width: 39%;">
+          <col style="width: 39%;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>TIÊU CHÍ SO SÁNH</th>
+            <th>MÔ HÌNH DƯỚI 50M²</th>
+            <th>MÔ HÌNH TRÊN 50M²</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>1. Sản phẩm chủ đạo</th>
+            <td>• Cháo ngũ cốc nguyên hạt hầm nồi gang 10h+<br>• Cháo óc heo, cháo tim cật, cháo hải sản...</td>
+            <td>• Lẩu cháo Thủ Heo (món chính) và nhiều loại nhân khác cho lẩu cháo<br>• Lẩu cháo nồi gang đặc sản (bồ câu, sườn sụn, hải sản...)</td>
+          </tr>
+          <tr>
+            <th>2. Định vị &amp; Mô hình</th>
+            <td>• Mô hình cháo sức khoẻ. Bán offline và online</td>
+            <td>• Mô hình quán nhậu lẩu cháo &amp; cháo. Bán offline và online</td>
+          </tr>
+          <tr>
+            <th>3. Ưu điểm vận hành</th>
+            <td>• Không phụ thuộc đầu bếp, không cần biết nấu ăn<br>• Đặc biệt phù hợp với người muốn khởi nghiệp (Online hoặc Online &amp; Offline)<br>• Vốn đầu tư ban đầu mỏng, điểm hòa vốn thấp<br>• Tốc độ ra món nhanh, tối ưu bán tại chỗ &amp; giao hàng</td>
+            <td>• Không phụ thuộc đầu bếp, Chỉ cần phụ bếp (hậu cần)<br>• Doanh thu &amp; Giá trị đơn hàng (AOV) cao<br>• Khai thác tối đa nhiều khung giờ trong ngày<br>• Biên lợi nhuận lớn trên từng bàn nhậu</td>
+          </tr>
+          <tr>
+            <th>4. Hình thức bán</th>
+            <td>• Ăn tại chỗ, mua mang về &amp; giao hàng qua ứng dụng (Grab, ShopeeFood, Gojek, Be).</td>
+            <td>• Ăn tại chỗ theo nhóm, tiệc nhậu &amp; giao hàng.</td>
+          </tr>
+          <tr>
+            <th>5. Khách hàng mục tiêu</th>
+            <td>• Gia đình, dân văn phòng, người lớn tuổi, người cần phục hồi sức khỏe.</td>
+            <td>• Nhóm bạn, dân nhậu, khách ăn đêm, nhóm tụ tập nhậu buổi sáng.</td>
+          </tr>
+          <tr>
+            <th>6. Khung giờ kinh doanh</th>
+            <td>• Cao điểm Sáng – Trưa – Tối</td>
+            <td>• Chiều – Tối – Xuyên đêm – Nhậu buổi sáng</td>
+          </tr>
+          <tr>
+            <th>7. Quy mô nhân sự</th>
+            <td>• 1 – 2 nhân sự / ca (Không cần bếp trưởng)</td>
+            <td>• 3 – 5+ nhân sự / ca (Phục vụ bàn &amp; Bếp nhậu)</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
@@ -491,7 +607,7 @@
       </div>
       <div class="reason-card">
         <h3 class="card-title-caps">Sự Kết Hợp Mô Hình Độc Đáo</h3>
-        <p class="text-sub" style="margin-top: var(--space-xs);"><strong style="color: var(--color-ink);">Cháo Tăng Lực (Bán Nhanh &amp; Mang Về):</strong> dòng sản phẩm dinh dưỡng, phục vụ siêu tốc, bán xuyên suốt từ ngày đến đêm khuya.</p>
+        <p class="text-sub" style="margin-top: var(--space-xs);"><strong style="color: var(--color-ink);">Cháo Nồi Gang (Bán offline &amp; Bán online):</strong> dòng sản phẩm dinh dưỡng, phục vụ siêu tốc, bán xuyên suốt từ ngày đến đêm khuya.</p>
         <p class="text-sub" style="margin-top: var(--space-xs);"><strong style="color: var(--color-ink);">Lẩu Cháo (Trải Nghiệm Tại Chỗ):</strong> không gian thưởng thức ấm cúng, phù hợp tụ họp bạn bè, gia đình, nhậu tăng 2 - tăng 3, giúp tăng mạnh giá trị trên mỗi đơn hàng.</p>
       </div>
     </div>
@@ -505,12 +621,12 @@
     </div>
     <div class="value-grid">
       <div class="value-card">
-        <h3 class="card-title-caps" style="margin-top: var(--space-xs);">Không Cần Kinh Nghiệm</h3>
-        <p class="text-sub" style="margin-top: var(--space-2xs);">Quy trình được đóng gói chi tiết, thao tác đơn giản, ai cũng có thể quản lý và vận hành.</p>
-      </div>
-      <div class="value-card">
         <h3 class="card-title-caps" style="margin-top: var(--space-xs);">Không Phụ Thuộc Đầu Bếp</h3>
         <p class="text-sub" style="margin-top: var(--space-2xs);">Bếp Trung Tâm chịu trách nhiệm 100% khâu chế biến cốt lõi, loại bỏ rủi ro nhân sự.</p>
+      </div>
+      <div class="value-card">
+        <h3 class="card-title-caps" style="margin-top: var(--space-xs);">Không Cần Biết nấu ăn</h3>
+        <p class="text-sub" style="margin-top: var(--space-2xs);">Quy trình được đóng gói chi tiết, thao tác đơn giản, ai cũng có thể quản lý và vận hành.</p>
       </div>
       <div class="value-card">
         <h3 class="card-title-caps" style="margin-top: var(--space-xs);">Không Lo Hàng Tồn</h3>
@@ -522,7 +638,7 @@
       </div>
       <div class="value-card">
         <h3 class="card-title-caps" style="margin-top: var(--space-xs);">Siêu Tối Ưu</h3>
-        <p class="text-sub" style="margin-top: var(--space-2xs);">Vốn đầu tư ban đầu nhẹ, tiết kiệm chi phí mặt bằng bếp và nhân sự, biên lợi nhuận cao.</p>
+        <p class="text-sub" style="margin-top: var(--space-2xs);">Vốn đầu tư ban đầu nhẹ, tiết kiệm chi phí mặt bằng bếp và nhân sự, lợi nhuận cao.</p>
       </div>
       <div class="value-card">
         <h3 class="card-title-caps" style="margin-top: var(--space-xs);">Siêu Tốc Độ</h3>
@@ -532,49 +648,7 @@
   </div>
 </section>
 
-<section class="menu-section">
-  <div class="container">
-    <div class="section-header">
-      <h2 class="section-title-sm">2 MÔ HÌNH NHƯỢNG QUYỀN LINH HOẠT</h2>
-      <p>Lựa chọn mô hình phù hợp với mặt bằng và định hướng kinh doanh của bạn</p>
-    </div>
-    <div class="compare-table-wrap">
-      <table class="compare-table">
-        <thead>
-          <tr>
-            <th>Tiêu Chí</th>
-            <th>Mô Hình Cháo Tăng Lực</th>
-            <th>Mô Hình Lẩu Cháo Trải Nghiệm</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>Định vị</th>
-            <td>Bổ dưỡng, tiện lợi, mua mang về &amp; ăn nhanh.</td>
-            <td>Tụ họp, nhậu đêm, trải nghiệm không gian.</td>
-          </tr>
-          <tr>
-            <th>Diện tích</th>
-            <td>Tinh gọn (từ 15m² - 30m²).</td>
-            <td>Vừa &amp; lớn (từ 50m² trở lên).</td>
-          </tr>
-          <tr>
-            <th>Đặc trưng</th>
-            <td>Tốc độ ra món dưới 1 phút, bán liên tục.</td>
-            <td>Tăng doanh thu nhóm, tối ưu khung giờ tối/đêm.</td>
-          </tr>
-          <tr>
-            <th>Phù hợp</th>
-            <td>Kiosk, mặt tiền nhỏ, khu dân cư, gần bệnh viện/trường học.</td>
-            <td>Các trục đường ăn uống, khu trung tâm, phố ẩm thực.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<section class="value-section">
+<section class="value-section" style="background-color: var(--color-white);">
   <div class="container">
     <div class="section-header" style="margin-bottom: var(--space-lg);">
       <h2 class="section-title-sm">QUÁN VUÔNG ĐỒNG HÀNH CÙNG BẠN NHƯ THẾ NÀO?</h2>
@@ -583,7 +657,7 @@
     <div class="news-grid">
       <div class="news-card">
         <span class="badge-tag" style="background-color: var(--color-gold);">01</span>
-        <h3 style="margin-top: var(--space-sm);">Cung Ứng Từ Bếp Trung Tâm</h3>
+        <h3 style="margin-top: var(--space-sm);">Bếp trung tâm</h3>
         <p class="text-sub" style="margin-top: var(--space-xs);">Đảm bảo toàn bộ cốt cháo, nước dùng và nguyên liệu đặc trưng được giao tận nơi, đúng chuẩn vệ sinh an toàn thực phẩm.</p>
       </div>
       <div class="news-card">
@@ -593,7 +667,7 @@
       </div>
       <div class="news-card">
         <span class="badge-tag" style="background-color: var(--color-gold);">03</span>
-        <h3 style="margin-top: var(--space-sm);">Bộ Nhận Diện Thương Hiệu</h3>
+        <h3 style="margin-top: var(--space-sm);">Nhận diện thương hiệu</h3>
         <p class="text-sub" style="margin-top: var(--space-xs);">Hướng dẫn thiết kế, trang trí bảng hiệu, không gian chuẩn nhận diện sang trọng - tinh tế của Quán Vuông.</p>
       </div>
       <div class="news-card">
@@ -608,19 +682,19 @@
       </div>
       <div class="news-card">
         <span class="badge-tag" style="background-color: var(--color-gold);">06</span>
-        <h3 style="margin-top: var(--space-sm);">Khảo Sát &amp; Đánh Giá Mặt Bằng</h3>
+        <h3 style="margin-top: var(--space-sm);">Khảo sát mặt bằng</h3>
         <p class="text-sub" style="margin-top: var(--space-xs);">Tư vấn, thẩm định vị trí kinh doanh tiềm năng nhằm tối ưu hoá lượng khách hàng và rút ngắn thời gian hoàn vốn.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="menu-section">
+<section class="menu-section" style="background-color: var(--color-bg-panel);">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title-sm">QUY TRÌNH 5 BƯỚC THAM GIA NHƯỢNG QUYỀN</h2>
+      <h2 class="section-title-sm">QUY TRÌNH 6 BƯỚC THAM GIA NHƯỢNG QUYỀN</h2>
     </div>
-    <div>
+    <div class="timeline-grid">
       <div class="timeline-card">
         <div class="step-number">1</div>
         <h3 class="card-title-caps">Tiếp Nhận Thông Tin</h3>
@@ -638,11 +712,16 @@
       </div>
       <div class="timeline-card">
         <div class="step-number">4</div>
-        <h3 class="card-title-caps">Setup &amp; Đào Tạo</h3>
-        <p class="text-sub" style="margin-top: var(--space-2xs);">Thi công điểm bán, chuyển giao quy trình và vận hành thử.</p>
+        <h3 class="card-title-caps">Thi Công &amp; Setup Mặt Bằng</h3>
+        <p class="text-sub" style="margin-top: var(--space-2xs);">Hoàn thiện thi công điểm bán theo tiêu chuẩn nhận diện thương hiệu.</p>
       </div>
       <div class="timeline-card">
         <div class="step-number">5</div>
+        <h3 class="card-title-caps">Đào Tạo &amp; Chuyển Giao</h3>
+        <p class="text-sub" style="margin-top: var(--space-2xs);">Chuyển giao quy trình vận hành, đào tạo nhân sự và vận hành thử.</p>
+      </div>
+      <div class="timeline-card">
+        <div class="step-number">6</div>
         <h3 class="card-title-caps">Khai Trương &amp; Đồng Hành</h3>
         <p class="text-sub" style="margin-top: var(--space-2xs);">Bắt đầu kinh doanh chính thức với sự hỗ trợ từ Bếp Trung Tâm và đội ngũ Marketing.</p>
       </div>
@@ -741,6 +820,7 @@
     });
   })();
 </script>
+
 
 </body>
 </html>
